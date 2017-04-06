@@ -7,7 +7,7 @@
  */
 class TestClass {
         
-    private $test;
+    private $test;    //starts off as null
     //magic method
     public function __construct($test) {
         $this->setTest($test);

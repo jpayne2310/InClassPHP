@@ -14,6 +14,8 @@ class DB {
     protected $user;
     protected $password;
     
+    
+    
     function __construct($dns, $user, $password) {
         $this->dns = $dns;
         $this->user = $user;

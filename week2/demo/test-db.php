@@ -12,7 +12,7 @@
             $db = new DBPhone();
             $phones = $db->getAllPhones();
             
-            echo var_dump($phones);
+            //echo var_dump($phones);
             
             include './views/view-phones.html.php';
             
