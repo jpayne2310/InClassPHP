@@ -5,23 +5,19 @@
         <title></title>
     </head>
     <body>
-        <?php
-            
+        <?php         
             include './models/TestClass.php';
             
             $test = new TestClass('testing');
-            
-           
-            
+                
             echo $test->getTest();
             
+            ?><br /><?php
             $test->setTest('true');
-            
              echo $test->getTest();
-             
+            ?><br /><?php
             
-            //$test->
-        
+           echo $test->functionName();
         ?>
     </body>
 </html>

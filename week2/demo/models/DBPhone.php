@@ -1,13 +1,7 @@
 <?php
 
-/**
- * Description of DBSpring
- *
- * @author GFORTI
- */
 class DBPhone extends DB {
-    //put your code here
-    
+
     function __construct() {
         parent::__construct('mysql:host=localhost;port=3306;dbname=PHPAdvClassSpring2017','root','');
     }
@@ -23,6 +17,5 @@ class DBPhone extends DB {
         
         return $results;
     }
-
 }
 

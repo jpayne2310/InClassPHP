@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Description of TestClass
- *
- * @author User
- */
 class TestClass {
         
     private $test;    //starts off as null
@@ -13,35 +8,29 @@ class TestClass {
         $this->setTest($test);
     }
     
-    /**
-    * Function getTest.
-    *    
-    * @return void;
-    */   
     public function getTest() {
         return $this->test;
     }
-
-     
     /**
-    * Function setTest..
-    *    
-    * @param {String} [$test]
-    */   
+     * 
+     * @param type $test
+     * @throws Exception
+     */
     public function setTest($test) {
         if ( !is_string($test) ) {
             throw new Exception('only string allowed for test');
         }
-            
         $this->test = $test;
-        
-        
-    }
-
+    }  
     
-   private function functionName($param) {
+    /**
+     * 
+     * @return string
+     */
+   public function functionName() {
        
-   }
-
-    
+       $bob = "Hi Mom";
+       
+       return $bob;
+   } 
 }

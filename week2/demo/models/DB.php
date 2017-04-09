@@ -1,30 +1,18 @@
 <?php
 
-
-/**
- * Description of DB
- *
- * @author GFORTI
- */
 class DB {
-    //put your code here
-    
     protected $db = null;
     protected $dns;
     protected $user;
     protected $password;
-    
-    
-    
+
     function __construct($dns, $user, $password) {
         $this->dns = $dns;
         $this->user = $user;
         $this->password = $password;
     }
-
       
-    public function getDb() { 
-        
+    public function getDb() {        
         /*
          * If the DB is not null a connection has been made.
          */
@@ -41,16 +29,12 @@ class DB {
             /* If the connection fails we will close the 
              * connection by setting the variable to null */
             $this->closeDB();
-            throw new Exception($ex->getMessage());
-                        
+            throw new Exception($ex->getMessage());                       
         }
-
         return $this->db;
     }
     
     protected function closeDB() {
         $this->db = null;
-    }
-    
-    
+    }   
 }
