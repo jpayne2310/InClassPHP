@@ -6,8 +6,6 @@
     </head>
     <body>
         <?php
-        
-        
         /*
          * Exceptions are used for handling program failures.
          * 
@@ -19,38 +17,34 @@
         };
         spl_autoload_register('load_lib');
         
-        //http://php.net/manual/en/language.exceptions.php
-        
-        
-        
         try {
            throw new Exception('I am an exception.');
            
         } catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
             
+            
+            //check out exception options
+            //$e->
+            
         }
-        
-        
-        
         try {
             $dbConfig = array(
                 "DB_DNS"=>'',
                 "DB_USER"=>'',
                 "DB_PASSWORD"=>''
             );
+            $dbConfig = true;
            $db = new DB($dbConfig);
            $pdo = $db->getDB();
            
+           } catch (ArrayException $e) {
+            echo '<br /> Caught Array DBException: ',  $e->getMessage(), "\n";
+            
+           
         } catch (DBException $e) {
             echo '<br /> Caught DBException: ',  $e->getMessage(), "\n";
-        }
-        
-      
-        
-        
-        
-        
+        }       
         ?>
     </body>
 </html>

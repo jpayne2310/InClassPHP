@@ -11,7 +11,12 @@
         
         try {
             $scope = new week3\gforti\Scope();
-        
+            
+            
+            //$scope->hello;
+            //$scope->hello = ' world';
+            
+            
             $scope->test = 'hello';
         
             echo $scope->test;
