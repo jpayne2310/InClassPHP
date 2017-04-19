@@ -7,8 +7,7 @@
     </head>
     <body>
         <?php
-        
-        
+      
         class Dog {
             
             public $name;

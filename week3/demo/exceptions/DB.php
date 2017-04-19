@@ -1,18 +1,13 @@
 <?php
-
 /**
  * DB is the general class to connection to our database
  *
  * @author GForti
  */
-
-
 class DB {
     
     protected $db = null;
     private $dbConfig = array();
-   
-     
     /**
     * The contructor requires.
     *    
@@ -20,12 +15,10 @@ class DB {
     */    
     public function __construct($dbConfig) {
         $this->setDbConfig($dbConfig);      
-    }
-    
+    }   
     private function getDbConfig() {
         return $this->dbConfig;
     }
-
     private function setDbConfig($dbConfig) {
         if(is_array($dbConfig)){
         $this->dbConfig = $dbConfig;
@@ -33,8 +26,7 @@ class DB {
         else {
             throw new ArrayException('$dbConfig must be an array');
         }
-    }
-    
+    }   
     /**
     * A method to get our database connection.
     *    
@@ -52,8 +44,7 @@ class DB {
            throw new DBException($ex->getMessage());
         }
         return $this->db;        
-    }
-    
+    } 
     /**
     * A method to close our database connection.
     *    

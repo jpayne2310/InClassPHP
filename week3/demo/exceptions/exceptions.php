@@ -6,27 +6,19 @@
     </head>
     <body>
         <?php
-        /*
-         * Exceptions are used for handling program failures.
-         * 
+        /*Exceptions are used for handling program failures.
          * You can throw exceptions and use try catch block to catch and handle the failure.
-         */
-        
+         */   
         function load_lib($class) {
             include $class . '.php';
         };
-        spl_autoload_register('load_lib');
-        
+        spl_autoload_register('load_lib');      
         try {
-           throw new Exception('I am an exception.');
-           
+           throw new Exception('I am an exception.');          
         } catch (Exception $e) {
-            echo 'Caught exception: ',  $e->getMessage(), "\n";
-            
-            
+            echo 'Caught exception: ',  $e->getMessage(), "\n";           
             //check out exception options
-            //$e->
-            
+            //$e->            
         }
         try {
             $dbConfig = array(
@@ -36,12 +28,9 @@
             );
             $dbConfig = true;
            $db = new DB($dbConfig);
-           $pdo = $db->getDB();
-           
+           $pdo = $db->getDB();          
            } catch (ArrayException $e) {
-            echo '<br /> Caught Array DBException: ',  $e->getMessage(), "\n";
-            
-           
+            echo '<br /> Caught Array DBException: ',  $e->getMessage(), "\n";          
         } catch (DBException $e) {
             echo '<br /> Caught DBException: ',  $e->getMessage(), "\n";
         }       

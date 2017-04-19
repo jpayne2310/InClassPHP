@@ -6,9 +6,7 @@
     </head>
     <body>
         <?php
-        // put your code here
-        
-        
+  
         class MyClass {
             
             public $hello = 'hello world';
@@ -32,9 +30,6 @@
         
         //$obj->hello;
         echo $obj->$varName;
-        
-        
-        
 
         ?>
     </body>
