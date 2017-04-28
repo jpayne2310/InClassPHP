@@ -1,5 +1,5 @@
 <?php
-$filename = '.'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'img_8c2ce4918b4a22324885fc1ee7a5c3f0866b09dc.jpg';
+$filename = '.'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'img_d03a2276de4e184a71ad10734e01d28b17f07525.jpg';
   /* SplFileObject extends from SplFileInfo so you can use the same functions 
    * from SplFileInfo with SplFileObject 
    */         
