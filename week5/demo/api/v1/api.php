@@ -17,16 +17,21 @@ try {
     $id = $restServer->getId();
     $serverData = $restServer->getServerData();
     
-    $resourceUCName = ucfirst($resource);
-    $resourceClassName = $resourceUCName .'Resource';
-    try{
-    $resourceData = new $resourceClassName();   
-   
-        } catch (InvalidArgumentException $e) {
-        throw new InvalidArgumentException($resourceUCName . ' Resource Not Found');
+       
+    /* 
+     * You can add resoruces that will be handled by the server 
+     * 
+     * There are clever ways to use advanced variables to sort of
+     * generalize the code below. That would also require that all
+     * resoruces follow the same standard. Interfaces can ensure that.
+     * 
+     * But in this example we will just code it out.
+     * 
+     */
+    if ( 'address' === $resource ) {
         
-    }
-  
+        $resourceData = new AddressResource();
+        
         if ( 'GET' === $verb ) {
             
             if ( NULL === $id ) {
@@ -48,7 +53,7 @@ try {
                 $restServer->setMessage('Address Added');
                 $restServer->setStatus(201);
             } else {
-                throw new Exception($resourceUCName. ' could not be added');
+                throw new Exception('Address could not be added');
             }
         
         }
@@ -57,12 +62,15 @@ try {
         if ( 'PUT' === $verb ) {
             
             if ( NULL === $id ) {
-                throw new InvalidArgumentException($resourceUCName. 'ID ' . $id . ' was not found');
+                throw new InvalidArgumentException('Address ID ' . $id . ' was not found');
             }
             
         }
         
-//add delete
+    } else {
+        throw new InvalidArgumentException($resource . ' Resource Not Found');
+        
+    }
    
     
     /* 400 exeception means user sent something wrong */
