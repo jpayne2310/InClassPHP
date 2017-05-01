@@ -60,11 +60,26 @@ try {
         
         
         if ( 'PUT' === $verb ) {
-            
+            $restServer->setData($resourceData->get($id));
+             if ($resourceData->put($serverData)) {
+                $restServer->setMessage('Address Updated');
+                $restServer->setStatus(201);}
             if ( NULL === $id ) {
                 throw new InvalidArgumentException('Address ID ' . $id . ' was not found');
             }
             
+        }
+        
+        if ( 'DELETE' === $verb) {
+            
+                $restServer->setData($resourceData->delete($id));
+            
+            if ($resourceData->delete($serverData)) {
+                $restServer->setMessage('Record Deleted');
+                $restServer->setStatus(201);
+            } else {
+                throw new Exception('Address not found');
+            }
         }
         
     } else {

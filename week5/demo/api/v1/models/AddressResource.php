@@ -46,4 +46,34 @@ class AddressResource extends DBSpring implements IRestModel {
         return false;
     }
     
+    public function put($id) {
+        /* note you should validate before adding to the data base */
+        $stmt = $this->getDb()->prepare("UPDATE address SET fullname = :fullname, email = :email, addressline1 = :addressline1, city = :city, state = :state, zip = :zip, birthday = :birthday where address_id = address_id");
+        $binds = array(
+            ":address_id" => $id,
+            
+        );
+
+        
+    }
+       
+    
+    
+    public function delete($id) {
+        $stmt = $this->getDb()->prepare("DELETE FROM address where address_id = :address_id");
+        $binds = [":address_id" => $id];
+        error_reporting(E_ERROR);
+        if ($stmt->execute($binds) && ':address_id' != $id) {
+            $results = true;
+        }
+        else {
+            $results = false;
+        }
+        
+        return $results;
+
+                
+    }
+
+    
 }
