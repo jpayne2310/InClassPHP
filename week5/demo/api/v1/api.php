@@ -4,21 +4,22 @@ include_once './autoload.php';
 
 /*
  * The Rest server is sort of like the page is hosting the API
- * When a user calls the page (By url(HTTP), CURL, JavaScript etc.), the server(this Page) will handle the request.
+ * When a user calls the page (By url(HTTP), CURL, JavaScript etc.), 
+ * the server(this Page) will handle the request.
  */
 $restServer = new RestServer();
 
 try {
-    
+
     $restServer->setStatus(200);
-    
+
     $resource = $restServer->getResource();
     $verb = $restServer->getVerb();
     $id = $restServer->getId();
     $serverData = $restServer->getServerData();
-    
-       
-    /* 
+
+
+    /*
      * You can add resoruces that will be handled by the server 
      * 
      * There are clever ways to use advanced variables to sort of
@@ -28,26 +29,23 @@ try {
      * But in this example we will just code it out.
      * 
      */
-    if ( 'address' === $resource ) {
-        
+    if ('address' === $resource) {
+
         $resourceData = new AddressResource();
-        
-        if ( 'GET' === $verb ) {
-            
-            if ( NULL === $id ) {
-                
-                $restServer->setData($resourceData->getAll());                           
-                
+
+        if ('GET' === $verb) {
+
+            if (NULL === $id) {
+
+                $restServer->setData($resourceData->getAll());
             } else {
-                
+
                 $restServer->setData($resourceData->get($id));
-                
-            }            
-            
+            }
         }
-                
-        if ( 'POST' === $verb ) {
-            
+
+        if ('POST' === $verb) {
+
 
             if ($resourceData->post($serverData)) {
                 $restServer->setMessage('Address Added');
@@ -55,47 +53,46 @@ try {
             } else {
                 throw new Exception('Address could not be added');
             }
-        
         }
-        
-        
-        if ( 'PUT' === $verb ) {
+
+
+        if ('PUT' === $verb) {
             $restServer->setData($resourceData->get($id));
-             if ($resourceData->put($serverData)) {
+            if ($resourceData->put($serverData, $id)) {
+
                 $restServer->setMessage('Address Updated');
-                $restServer->setStatus(201);}
-            if ( NULL === $id ) {
-                throw new InvalidArgumentException('Address ID ' . $id . ' was not found');
+                $restServer->setStatus(201);
             }
-            
+            if (NULL === $id) {
+                throw new InvalidArgumentException('Address ID ' . $id . 
+                        ' was not found');
+            }
         }
-        
-        if ( 'DELETE' === $verb) {
-            
-                $restServer->setData($resourceData->delete($id));
-            
-            if ($resourceData->delete($serverData)) {
+
+        if ('DELETE' === $verb) {
+
+            $restServer->setData($resourceData->get($id));
+
+            if ($resourceData->delete($id)) {
                 $restServer->setMessage('Record Deleted');
                 $restServer->setStatus(201);
             } else {
                 throw new Exception('Address not found');
             }
         }
-        
     } else {
         throw new InvalidArgumentException($resource . ' Resource Not Found');
-        
     }
-   
-    
+
+
     /* 400 exeception means user sent something wrong */
 } catch (InvalidArgumentException $e) {
     $restServer->setStatus(400);
     $restServer->setErrors($e->getMessage());
     /* 500 exeception means something is wrong in the program */
-} catch (Exception $ex) {    
+} catch (Exception $ex) {
     $restServer->setStatus(500);
-    $restServer->setErrors($ex->getMessage());   
+    $restServer->setErrors($ex->getMessage());
 }
 
 
