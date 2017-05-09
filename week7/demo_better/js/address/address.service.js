@@ -27,14 +27,18 @@
         ////////////
 
         /*
-         * With the http call it returns a promise.  The promise will either get data from the server, or an error.
+         * With the http call it returns a promise.  The promise will either 
+         * get data from the server, or an error.
          * 
-         * The frist then function will be for our sucess call, which then we want to return the correct data for the view page.
+         * The first then function will be for our sucess call, which then we 
+         * want to return the correct data for the view page.
          * 
-         * the second paramter for then is for the error.  We just return back an empty data set, and optionally can also display an error
+         * the second paramter for then is for the error.  We just return back 
+         * an empty data set, and optionally can also display an error
          * or handle the error in another way.
          * 
-         * So we return the promise, which in turn when the promise is complete will return a response for us to use.
+         * So we return the promise, which in turn when the promise is complete
+         *  will return a response for us to use.
          */
          function getAllAddresses() {
              return $http.get(url)
