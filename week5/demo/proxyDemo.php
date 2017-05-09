@@ -40,7 +40,8 @@
         <br />
         city <input type="text" name="city" value="" />
         <br />
-        state <input type="text" name="state" list="states" placeholder="Find U.S. State">
+        state <input type="text" name="state" list="states" 
+                     placeholder="Find U.S. State">
         <br />
         zip <input type="number" pattern="[0-9]*" maxlength="5" min="0" name="zip">
         <br />
@@ -61,6 +62,7 @@
                 var verb = verbfield.options[verbfield.selectedIndex].value;
                 var resource = document.querySelector('input[name="resource"]').value;
                 var data = {
+                    
                     'fullname': document.querySelector('input[name="fullname"]').value,
                     'email': document.querySelector('input[name="email"]').value,
                     'addressline1': document.querySelector('input[name="addressline1"]').value,
