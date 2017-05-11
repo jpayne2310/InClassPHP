@@ -27,7 +27,7 @@
         ////////////
 
         /*
-<<<<<<< HEAD
+
          * With the http call it returns a promise.  The promise will either get data from the server, or an error.
          * 
          * The frist then function will be for our sucess call, which then we want to return the correct data for the view page.
@@ -36,7 +36,7 @@
          * or handle the error in another way.
          * 
          * So we return the promise, which in turn when the promise is complete will return a response for us to use.
-=======
+
          * With the http call it returns a promise.  The promise will either 
          * get data from the server, or an error.
          * 
@@ -49,7 +49,7 @@
          * 
          * So we return the promise, which in turn when the promise is complete
          *  will return a response for us to use.
->>>>>>> 5021c82284700b6c394b0d5c1f17d749be3c3718
+
          */
          function getAllAddresses() {
              return $http.get(url)
@@ -89,11 +89,11 @@
                 return $http.post(url, model);
             }
             function deleteAddress(address_id) {
-<<<<<<< HEAD
+
                 var _url = url + '/' + address_id;
-=======
+
                 var _url = url + address_id;
->>>>>>> 5021c82284700b6c394b0d5c1f17d749be3c3718
+
                 return $http.delete(_url);
             }
             function putAddress(address_id, fullname, email, addressline1, city, state, zip, birthday ) {  

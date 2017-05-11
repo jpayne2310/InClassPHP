@@ -23,14 +23,14 @@
                 templateUrl: 'js/address/address-detail.template.html',
                 controller: 'AddressDetailController',
                 controllerAs: 'vm'
-<<<<<<< HEAD
+
             })
             when('/address/delete:addressId', {
                 templateUrl: 'js/address/address-delete.template.html',
                 controller: 'AddressDeleteController',
                 controllerAs: 'vm'
-=======
->>>>>>> 5021c82284700b6c394b0d5c1f17d749be3c3718
+
+
             });
     }
 
